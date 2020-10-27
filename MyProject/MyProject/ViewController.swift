@@ -11,9 +11,25 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.title = "FirstVC" // устанавливаем заголовок VC
+        view.backgroundColor = .white // фон view
+        setAddButton()
+        
     }
 
-
+    func setAddButton() { //добавляем кнопку на навбар
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButton(parameter:)))
+    }
+    
+    
+    // селектор для кнопки который при нажатии направляет на второй экран
+    @objc func addButton(parameter: UIBarButtonItem) {
+       let secondVC = SecondViewController()
+//        self.navigationController?.pushViewController(secondVC, animated: true)
+       
+        self.present(secondVC, animated: true, completion: nil)
+    }
+    
+    
 }
 
