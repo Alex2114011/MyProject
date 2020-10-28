@@ -12,7 +12,6 @@
 		FA9D6B3D2546E3B700779E83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA9D6B3C2546E3B700779E83 /* Assets.xcassets */; };
 		FA9D6B402546E3B700779E83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA9D6B3E2546E3B700779E83 /* LaunchScreen.storyboard */; };
 		FAB90FEF254866FA007A72F0 /* ItemAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB90FEE254866FA007A72F0 /* ItemAddViewController.swift */; };
-		FAF50D7B25498EC600FE43F3 /* ItemListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF50D7A25498EC600FE43F3 /* ItemListViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +22,6 @@
 		FA9D6B3F2546E3B700779E83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA9D6B412546E3B700779E83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAB90FEE254866FA007A72F0 /* ItemAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddViewController.swift; sourceTree = "<group>"; };
-		FAF50D7A25498EC600FE43F3 /* ItemListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemListViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,20 +57,11 @@
 				FA9D6B332546E3B400779E83 /* AppDelegate.swift */,
 				FA9D6B372546E3B400779E83 /* ItemListViewController.swift */,
 				FAB90FEE254866FA007A72F0 /* ItemAddViewController.swift */,
-				FAF50D7D25498FC200FE43F3 /* XIB ViewController */,
 				FA9D6B3C2546E3B700779E83 /* Assets.xcassets */,
 				FA9D6B3E2546E3B700779E83 /* LaunchScreen.storyboard */,
 				FA9D6B412546E3B700779E83 /* Info.plist */,
 			);
 			path = MyProject;
-			sourceTree = "<group>";
-		};
-		FAF50D7D25498FC200FE43F3 /* XIB ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				FAF50D7A25498EC600FE43F3 /* ItemListViewController.xib */,
-			);
-			path = "XIB ViewController";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,7 +122,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA9D6B402546E3B700779E83 /* LaunchScreen.storyboard in Resources */,
-				FAF50D7B25498EC600FE43F3 /* ItemListViewController.xib in Resources */,
 				FA9D6B3D2546E3B700779E83 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
