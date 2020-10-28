@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ItemListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     
     // селектор для кнопки который при нажатии направляет на второй экран
     @objc func addButton(parameter: UIBarButtonItem) {
-       let secondVC = SecondViewController()
+       let secondVC = ItemAddViewController()
 //        self.navigationController?.pushViewController(secondVC, animated: true)
        
         self.present(secondVC, animated: true, completion: nil)
