@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA2A3D33254ABC7500BB4317 /* ItemListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2A3D31254ABC7500BB4317 /* ItemListTableViewCell.swift */; };
+		FA2A3D34254ABC7500BB4317 /* ItemListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2A3D32254ABC7500BB4317 /* ItemListTableViewCell.xib */; };
+		FA2A3D37254ABCA200BB4317 /* ItemListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2A3D36254ABCA200BB4317 /* ItemListViewController.xib */; };
 		FA9D6B342546E3B400779E83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9D6B332546E3B400779E83 /* AppDelegate.swift */; };
 		FA9D6B382546E3B400779E83 /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9D6B372546E3B400779E83 /* ItemListViewController.swift */; };
 		FA9D6B3D2546E3B700779E83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA9D6B3C2546E3B700779E83 /* Assets.xcassets */; };
@@ -15,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA2A3D31254ABC7500BB4317 /* ItemListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListTableViewCell.swift; sourceTree = "<group>"; };
+		FA2A3D32254ABC7500BB4317 /* ItemListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemListTableViewCell.xib; sourceTree = "<group>"; };
+		FA2A3D36254ABCA200BB4317 /* ItemListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemListViewController.xib; sourceTree = "<group>"; };
 		FA9D6B302546E3B400779E83 /* MyProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA9D6B332546E3B400779E83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA9D6B372546E3B400779E83 /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +41,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA2A3D39254ABCAA00BB4317 /* XIB ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA2A3D36254ABCA200BB4317 /* ItemListViewController.xib */,
+				FA2A3D32254ABC7500BB4317 /* ItemListTableViewCell.xib */,
+			);
+			path = "XIB ViewControllers";
+			sourceTree = "<group>";
+		};
 		FA9D6B272546E3B400779E83 = {
 			isa = PBXGroup;
 			children = (
@@ -54,8 +69,10 @@
 		FA9D6B322546E3B400779E83 /* MyProject */ = {
 			isa = PBXGroup;
 			children = (
+				FA2A3D39254ABCAA00BB4317 /* XIB ViewControllers */,
 				FA9D6B332546E3B400779E83 /* AppDelegate.swift */,
 				FA9D6B372546E3B400779E83 /* ItemListViewController.swift */,
+				FA2A3D31254ABC7500BB4317 /* ItemListTableViewCell.swift */,
 				FAB90FEE254866FA007A72F0 /* ItemAddViewController.swift */,
 				FA9D6B3C2546E3B700779E83 /* Assets.xcassets */,
 				FA9D6B3E2546E3B700779E83 /* LaunchScreen.storyboard */,
@@ -121,6 +138,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA2A3D34254ABC7500BB4317 /* ItemListTableViewCell.xib in Resources */,
+				FA2A3D37254ABCA200BB4317 /* ItemListViewController.xib in Resources */,
 				FA9D6B402546E3B700779E83 /* LaunchScreen.storyboard in Resources */,
 				FA9D6B3D2546E3B700779E83 /* Assets.xcassets in Resources */,
 			);
@@ -133,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA2A3D33254ABC7500BB4317 /* ItemListTableViewCell.swift in Sources */,
 				FAB90FEF254866FA007A72F0 /* ItemAddViewController.swift in Sources */,
 				FA9D6B382546E3B400779E83 /* ItemListViewController.swift in Sources */,
 				FA9D6B342546E3B400779E83 /* AppDelegate.swift in Sources */,
