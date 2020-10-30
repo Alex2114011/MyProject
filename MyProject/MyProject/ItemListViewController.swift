@@ -20,7 +20,6 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
         delegate()
         register()
         setAddButton()
-        
     }
     
     func setAddButton() { //добавляем кнопку на навбар
@@ -48,6 +47,17 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
+    
+    //MARK: Delete row
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            array.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        
+    }
+    
+    
     //MARK: UITableViewDelegate
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { // указываем высоту ячейки
@@ -65,13 +75,12 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
         present(navVC, animated: true, completion: nil) // открываем второй VC модально, в таком случае он будет иметь свой UIBarButtonItem
         
         //self.navigationController?.pushViewController(secondVC, animated: true)
-        
-        
     }
-    
-    
 }
- //MARK: Delegate to ItemAddViewController
+
+
+
+//MARK: Delegate to ItemAddViewController
 extension ItemListViewController: DeveloperEntryDelegate{
     
     func textDeveloperPlatform(_ text: String) {
@@ -79,6 +88,6 @@ extension ItemListViewController: DeveloperEntryDelegate{
         array.append(text) // добавляем элемен в массив
         tableView.insertRows(at: [indexPath], with: .fade) // позволяет в ставить новый элемент в таблицу
     }
-
+    
 }
 
