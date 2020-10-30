@@ -26,15 +26,33 @@ class ItemAddViewController: UIViewController {
         self.title = "SecondVC"
         saveButton.layer.cornerRadius = 5.0
         setAddButton()
+        updateSaveButtonState()
     }
     
     func setAddButton() { //добавляем кнопку на навбар
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(addButton(parameter:)))
     }
-  
+    
+    
     @IBAction func tapSaveButton(_ sender: UIButton) {
     }
+  
     
+    //MARK: Change State button
+    
+    @IBAction func textChanged(_ sender: UITextField) {
+        updateSaveButtonState()
+    }
+    func updateSaveButtonState(){
+        let textInField = textField.text ?? ""
+        if textInField.isEmpty{
+            saveButton.isEnabled = false
+            saveButton.backgroundColor = .gray
+        }else{
+            saveButton.isEnabled = true
+            saveButton.backgroundColor = .blue
+        }
+    }
     
     //MARK:Selectors
     
