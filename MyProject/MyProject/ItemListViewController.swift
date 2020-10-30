@@ -20,6 +20,7 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
         delegate()
         register()
         setAddButton()
+        
     }
     
     func setAddButton() { //добавляем кнопку на навбар
@@ -58,12 +59,16 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
     
     // селектор для кнопки который при нажатии направляет на второй экран
     @objc func addButton(parameter: UIBarButtonItem) {
-        let secondVC = ItemAddViewController()
-        //        self.navigationController?.pushViewController(secondVC, animated: true)
-        
-        self.present(secondVC, animated: true, completion: nil)
+        let rootVC = ItemAddViewController()
+        let navVC = UINavigationController(rootViewController: rootVC) // оборачиваем ItemAddViewController в свой NavigationController
+        present(navVC, animated: true, completion: nil) // открываем второй VC модально, в таком случае он будет иметь свой UIBarButtonItem
+
+        //self.navigationController?.pushViewController(secondVC, animated: true)
+
+
     }
     
-    
-}
+        
+    }
+
 

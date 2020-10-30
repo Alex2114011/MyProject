@@ -10,24 +10,26 @@
 		FA2A3D33254ABC7500BB4317 /* ItemListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2A3D31254ABC7500BB4317 /* ItemListTableViewCell.swift */; };
 		FA2A3D34254ABC7500BB4317 /* ItemListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2A3D32254ABC7500BB4317 /* ItemListTableViewCell.xib */; };
 		FA2A3D37254ABCA200BB4317 /* ItemListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2A3D36254ABCA200BB4317 /* ItemListViewController.xib */; };
+		FA2A3D43254B223D00BB4317 /* ItemAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2A3D41254B223D00BB4317 /* ItemAddViewController.swift */; };
+		FA2A3D44254B223D00BB4317 /* ItemAddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2A3D42254B223D00BB4317 /* ItemAddViewController.xib */; };
 		FA9D6B342546E3B400779E83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9D6B332546E3B400779E83 /* AppDelegate.swift */; };
 		FA9D6B382546E3B400779E83 /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9D6B372546E3B400779E83 /* ItemListViewController.swift */; };
 		FA9D6B3D2546E3B700779E83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA9D6B3C2546E3B700779E83 /* Assets.xcassets */; };
 		FA9D6B402546E3B700779E83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA9D6B3E2546E3B700779E83 /* LaunchScreen.storyboard */; };
-		FAB90FEF254866FA007A72F0 /* ItemAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB90FEE254866FA007A72F0 /* ItemAddViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FA2A3D31254ABC7500BB4317 /* ItemListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListTableViewCell.swift; sourceTree = "<group>"; };
 		FA2A3D32254ABC7500BB4317 /* ItemListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemListTableViewCell.xib; sourceTree = "<group>"; };
 		FA2A3D36254ABCA200BB4317 /* ItemListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemListViewController.xib; sourceTree = "<group>"; };
+		FA2A3D41254B223D00BB4317 /* ItemAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddViewController.swift; sourceTree = "<group>"; };
+		FA2A3D42254B223D00BB4317 /* ItemAddViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemAddViewController.xib; sourceTree = "<group>"; };
 		FA9D6B302546E3B400779E83 /* MyProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA9D6B332546E3B400779E83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA9D6B372546E3B400779E83 /* ItemListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewController.swift; sourceTree = "<group>"; };
 		FA9D6B3C2546E3B700779E83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA9D6B3F2546E3B700779E83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA9D6B412546E3B700779E83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FAB90FEE254866FA007A72F0 /* ItemAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +48,7 @@
 			children = (
 				FA2A3D36254ABCA200BB4317 /* ItemListViewController.xib */,
 				FA2A3D32254ABC7500BB4317 /* ItemListTableViewCell.xib */,
+				FA2A3D42254B223D00BB4317 /* ItemAddViewController.xib */,
 			);
 			path = "XIB ViewControllers";
 			sourceTree = "<group>";
@@ -71,9 +74,9 @@
 			children = (
 				FA2A3D39254ABCAA00BB4317 /* XIB ViewControllers */,
 				FA9D6B332546E3B400779E83 /* AppDelegate.swift */,
+				FA2A3D41254B223D00BB4317 /* ItemAddViewController.swift */,
 				FA9D6B372546E3B400779E83 /* ItemListViewController.swift */,
 				FA2A3D31254ABC7500BB4317 /* ItemListTableViewCell.swift */,
-				FAB90FEE254866FA007A72F0 /* ItemAddViewController.swift */,
 				FA9D6B3C2546E3B700779E83 /* Assets.xcassets */,
 				FA9D6B3E2546E3B700779E83 /* LaunchScreen.storyboard */,
 				FA9D6B412546E3B700779E83 /* Info.plist */,
@@ -141,6 +144,7 @@
 				FA2A3D34254ABC7500BB4317 /* ItemListTableViewCell.xib in Resources */,
 				FA2A3D37254ABCA200BB4317 /* ItemListViewController.xib in Resources */,
 				FA9D6B402546E3B700779E83 /* LaunchScreen.storyboard in Resources */,
+				FA2A3D44254B223D00BB4317 /* ItemAddViewController.xib in Resources */,
 				FA9D6B3D2546E3B700779E83 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,7 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA2A3D33254ABC7500BB4317 /* ItemListTableViewCell.swift in Sources */,
-				FAB90FEF254866FA007A72F0 /* ItemAddViewController.swift in Sources */,
+				FA2A3D43254B223D00BB4317 /* ItemAddViewController.swift in Sources */,
 				FA9D6B382546E3B400779E83 /* ItemListViewController.swift in Sources */,
 				FA9D6B342546E3B400779E83 /* AppDelegate.swift in Sources */,
 			);
@@ -301,7 +305,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = My.MyProject;
+				PRODUCT_BUNDLE_IDENTIFIER = My.MyProjectOne;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -320,7 +324,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = My.MyProject;
+				PRODUCT_BUNDLE_IDENTIFIER = My.MyProjectOne;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17503.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17502"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ItemAddViewController" customModule="MyProject" customModuleProvider="target">
+            <connections>
+                <outlet property="saveButton" destination="5Tm-tg-qXh" id="59Y-S9-7Vi"/>
+                <outlet property="textField" destination="duW-L4-JNO" id="cHh-VF-GdN"/>
+                <outlet property="textLabel" destination="4NV-uu-hX2" id="egW-1b-OU2"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите текст" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4NV-uu-hX2">
+                    <rect key="frame" x="20" y="266" width="114" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="114" id="AMD-SK-NHZ"/>
+                        <constraint firstAttribute="height" constant="21" id="rfc-B0-0YD"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="duW-L4-JNO">
+                    <rect key="frame" x="20" y="295" width="374" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="374" id="s0b-Be-7VS"/>
+                        <constraint firstAttribute="height" constant="34" id="veb-kp-5J8"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Tm-tg-qXh">
+                    <rect key="frame" x="142.5" y="363" width="129" height="54"/>
+                    <color key="backgroundColor" systemColor="linkColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="129" id="H0w-6F-Gs0"/>
+                        <constraint firstAttribute="height" constant="54" id="dbU-e1-zw0"/>
+                    </constraints>
+                    <state key="normal" title="Сохранить">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="tapSaveButton:" destination="-1" eventType="touchUpInside" id="MBc-Mb-8ia"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="duW-L4-JNO" firstAttribute="top" secondItem="4NV-uu-hX2" secondAttribute="bottom" constant="8" symbolic="YES" id="8Nd-Wm-N70"/>
+                <constraint firstItem="5Tm-tg-qXh" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ITO-YI-Jhk"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="4NV-uu-hX2" secondAttribute="trailing" constant="280" id="Rec-SX-rt0"/>
+                <constraint firstItem="5Tm-tg-qXh" firstAttribute="top" secondItem="duW-L4-JNO" secondAttribute="bottom" constant="34" id="VUi-Sa-6rk"/>
+                <constraint firstItem="4NV-uu-hX2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="ZSl-aZ-75Y"/>
+                <constraint firstItem="duW-L4-JNO" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="kzr-Jn-pI4"/>
+                <constraint firstItem="duW-L4-JNO" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="251" id="si9-m9-ma6"/>
+            </constraints>
+            <point key="canvasLocation" x="140.57971014492756" y="124.55357142857142"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
