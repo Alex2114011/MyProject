@@ -7,8 +7,13 @@
 
 import UIKit
 
+protocol DeveloperEntryDelegate: AnyObject {
+    func textDeveloperPlatform(_ text: String)
+}
 
 class ItemAddViewController: UIViewController {
+    
+    weak var delegate: DeveloperEntryDelegate?
     
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
@@ -30,11 +35,13 @@ class ItemAddViewController: UIViewController {
     }
     
     func setAddButton() { //добавляем кнопку на навбар
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(addButton(parameter:)))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(addButton(parameter:)))
     }
     
     
     @IBAction func tapSaveButton(_ sender: UIButton) {
+        self.delegate?.textDeveloperPlatform(textField.text ?? "") // передаем значение на ItemListViewController
+        self.navigationController?.dismiss(animated: true, completion: nil)
     }
   
     

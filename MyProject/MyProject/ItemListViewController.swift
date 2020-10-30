@@ -11,7 +11,7 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     
-    var array = ["Первая строка","Вторая строка", "Третья строка","Четвертая строка"] // тестовый массив
+    var array = [String]() // тестовый массив
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,14 +61,24 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
     @objc func addButton(parameter: UIBarButtonItem) {
         let rootVC = ItemAddViewController()
         let navVC = UINavigationController(rootViewController: rootVC) // оборачиваем ItemAddViewController в свой NavigationController
+        rootVC.delegate = self // подписываемся под делегирование
         present(navVC, animated: true, completion: nil) // открываем второй VC модально, в таком случае он будет иметь свой UIBarButtonItem
-
+        
         //self.navigationController?.pushViewController(secondVC, animated: true)
-
-
-    }
-    
+        
         
     }
+    
+    
+}
+ //MARK: Delegate to ItemAddViewController
+extension ItemListViewController: DeveloperEntryDelegate{
+    
+    func textDeveloperPlatform(_ text: String) {
+        let indexPath = IndexPath(row: array.count, section: 0) // создаем  indexPath с количеством элементов в массиве
+        array.append(text) // добавляем элемен в массив
+        tableView.insertRows(at: [indexPath], with: .fade) // позволяет в ставить новый элемент в таблицу
+    }
 
+}
 
