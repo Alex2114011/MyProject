@@ -11,7 +11,9 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     
-    var array = [String]() // тестовый массив
+//    var array = [String]() // тестовый массив
+    var itemsArray = [Items]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,12 +40,12 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
     //MARK: UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { // указываем количество ячеек
-        return array.count
+        return itemsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell { // создаем ячейку
         guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ItemListTableViewCell.self), for: indexPath) as? ItemListTableViewCell else { fatalError() }
-        cell.changeText(text: array[indexPath.row])
+        cell.changeText(text: itemsArray[indexPath.row].title)
         return cell
     }
     
@@ -51,7 +53,7 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
     //MARK: Delete row
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
-            array.remove(at: indexPath.row)
+            itemsArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
         
@@ -84,8 +86,8 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
 extension ItemListViewController: ItemAddDelegate{
     
     func addItem(with text: String) {
-        let indexPath = IndexPath(row: array.count, section: 0) // создаем  indexPath с количеством элементов в массиве
-        array.append(text) // добавляем элемен в массив
+        let indexPath = IndexPath(row: itemsArray.count, section: 0) // создаем  indexPath с количеством элементов в массиве
+        itemsArray.append(Items(title: text, subTitle: nil)) // добавляем элемен в массив
         tableView.insertRows(at: [indexPath], with: .fade) // позволяет в ставить новый элемент в таблицу
     }
     
