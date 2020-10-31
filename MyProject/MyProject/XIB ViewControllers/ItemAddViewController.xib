@@ -23,9 +23,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите текст" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4NV-uu-hX2">
-                    <rect key="frame" x="20" y="266" width="114" height="21"/>
+                    <rect key="frame" x="20" y="266" width="374" height="21"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="114" id="AMD-SK-NHZ"/>
+                        <constraint firstAttribute="width" constant="374" id="AMD-SK-NHZ"/>
                         <constraint firstAttribute="height" constant="21" id="rfc-B0-0YD"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -64,7 +64,7 @@
             <constraints>
                 <constraint firstItem="duW-L4-JNO" firstAttribute="top" secondItem="4NV-uu-hX2" secondAttribute="bottom" constant="8" symbolic="YES" id="8Nd-Wm-N70"/>
                 <constraint firstItem="5Tm-tg-qXh" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ITO-YI-Jhk"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="4NV-uu-hX2" secondAttribute="trailing" constant="280" id="Rec-SX-rt0"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="4NV-uu-hX2" secondAttribute="trailing" constant="20" id="Rec-SX-rt0"/>
                 <constraint firstItem="5Tm-tg-qXh" firstAttribute="top" secondItem="duW-L4-JNO" secondAttribute="bottom" constant="34" id="VUi-Sa-6rk"/>
                 <constraint firstItem="4NV-uu-hX2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="ZSl-aZ-75Y"/>
                 <constraint firstItem="duW-L4-JNO" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="kzr-Jn-pI4"/>

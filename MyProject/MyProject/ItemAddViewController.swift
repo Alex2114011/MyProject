@@ -7,13 +7,13 @@
 
 import UIKit
 
-protocol DeveloperEntryDelegate: AnyObject {
-    func textDeveloperPlatform(_ text: String)
+protocol ItemAddDelegate: AnyObject {
+    func addItem(with text: String)
 }
 
 class ItemAddViewController: UIViewController {
     
-    weak var delegate: DeveloperEntryDelegate?
+    weak var delegate: ItemAddDelegate?
     
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
@@ -40,7 +40,7 @@ class ItemAddViewController: UIViewController {
     
     
     @IBAction func tapSaveButton(_ sender: UIButton) {
-        self.delegate?.textDeveloperPlatform(textField.text ?? "") // передаем значение на ItemListViewController
+        self.delegate?.addItem(with: textField.text ?? "") // передаем значение на ItemListViewController
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
   

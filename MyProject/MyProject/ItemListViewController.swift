@@ -81,9 +81,9 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
 
 
 //MARK: Delegate to ItemAddViewController
-extension ItemListViewController: DeveloperEntryDelegate{
+extension ItemListViewController: ItemAddDelegate{
     
-    func textDeveloperPlatform(_ text: String) {
+    func addItem(with text: String) {
         let indexPath = IndexPath(row: array.count, section: 0) // создаем  indexPath с количеством элементов в массиве
         array.append(text) // добавляем элемен в массив
         tableView.insertRows(at: [indexPath], with: .fade) // позволяет в ставить новый элемент в таблицу
