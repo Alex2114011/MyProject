@@ -17,6 +17,8 @@
 		FA9D6B382546E3B400779E83 /* ItemListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9D6B372546E3B400779E83 /* ItemListViewController.swift */; };
 		FA9D6B3D2546E3B700779E83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA9D6B3C2546E3B700779E83 /* Assets.xcassets */; };
 		FA9D6B402546E3B700779E83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA9D6B3E2546E3B700779E83 /* LaunchScreen.storyboard */; };
+		FAAAB0AA2551E83800410DDB /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAAB0A82551E83800410DDB /* ResultViewController.swift */; };
+		FAAAB0AB2551E83800410DDB /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAAAB0A92551E83800410DDB /* ResultViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		FA9D6B3C2546E3B700779E83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA9D6B3F2546E3B700779E83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA9D6B412546E3B700779E83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAAAB0A82551E83800410DDB /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		FAAAB0A92551E83800410DDB /* ResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,7 @@
 				FA2A3D36254ABCA200BB4317 /* ItemListViewController.xib */,
 				FA2A3D32254ABC7500BB4317 /* ItemListTableViewCell.xib */,
 				FA2A3D42254B223D00BB4317 /* ItemAddViewController.xib */,
+				FAAAB0A92551E83800410DDB /* ResultViewController.xib */,
 			);
 			path = "XIB ViewControllers";
 			sourceTree = "<group>";
@@ -77,6 +82,7 @@
 				FA2A3D39254ABCAA00BB4317 /* XIB ViewControllers */,
 				FA9D6B332546E3B400779E83 /* AppDelegate.swift */,
 				FA2A3D41254B223D00BB4317 /* ItemAddViewController.swift */,
+				FAAAB0A82551E83800410DDB /* ResultViewController.swift */,
 				FA9D6B372546E3B400779E83 /* ItemListViewController.swift */,
 				FA525F6A254DC56C0099B718 /* ItemModel.swift */,
 				FA2A3D31254ABC7500BB4317 /* ItemListTableViewCell.swift */,
@@ -145,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA2A3D34254ABC7500BB4317 /* ItemListTableViewCell.xib in Resources */,
+				FAAAB0AB2551E83800410DDB /* ResultViewController.xib in Resources */,
 				FA2A3D37254ABCA200BB4317 /* ItemListViewController.xib in Resources */,
 				FA9D6B402546E3B700779E83 /* LaunchScreen.storyboard in Resources */,
 				FA2A3D44254B223D00BB4317 /* ItemAddViewController.xib in Resources */,
@@ -164,6 +171,7 @@
 				FA2A3D43254B223D00BB4317 /* ItemAddViewController.swift in Sources */,
 				FA9D6B382546E3B400779E83 /* ItemListViewController.swift in Sources */,
 				FA9D6B342546E3B400779E83 /* AppDelegate.swift in Sources */,
+				FAAAB0AA2551E83800410DDB /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
