@@ -45,7 +45,7 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell { // создаем ячейку
         guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ItemListTableViewCell.self), for: indexPath) as? ItemListTableViewCell else { fatalError() }
-        cell.changeText(text: itemsArray[indexPath.row].title)
+        cell.changeText(text: itemsArray[indexPath.row].title, subTitle: itemsArray[indexPath.row].subTitle ?? "")
         return cell
     }
     
@@ -84,10 +84,9 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
 
 //MARK: Delegate to ItemAddViewController
 extension ItemListViewController: ItemAddDelegate{
-    
-    func addItem(with text: String) {
+    func addItem(with text: String, subText: String) {
         let indexPath = IndexPath(row: itemsArray.count, section: 0) // создаем  indexPath с количеством элементов в массиве
-        itemsArray.append(Items(title: text, subTitle: nil)) // добавляем элемен в массив
+        itemsArray.append(Items(title: text, subTitle: subText)) // добавляем элемен в массив
         tableView.insertRows(at: [indexPath], with: .fade) // позволяет в ставить новый элемент в таблицу
     }
     

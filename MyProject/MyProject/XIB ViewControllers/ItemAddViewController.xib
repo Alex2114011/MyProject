@@ -13,7 +13,6 @@
             <connections>
                 <outlet property="saveButton" destination="5Tm-tg-qXh" id="59Y-S9-7Vi"/>
                 <outlet property="subTitleTextView" destination="dM5-L9-vNe" id="o4k-Fd-7Fb"/>
-                <outlet property="titleLabel" destination="4NV-uu-hX2" id="egW-1b-OU2"/>
                 <outlet property="titleTextField" destination="duW-L4-JNO" id="cHh-VF-GdN"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,17 +22,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите текст" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4NV-uu-hX2">
-                    <rect key="frame" x="20" y="181" width="374" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="21" id="gwe-Ok-Wwq"/>
-                        <constraint firstAttribute="width" constant="374" id="lJO-fK-Oyu"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="duW-L4-JNO">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите заголовок" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="duW-L4-JNO">
                     <rect key="frame" x="20" y="210" width="374" height="34"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="374" id="VVB-Qh-Yle"/>
@@ -59,7 +48,7 @@
                         <action selector="tapSaveButton:" destination="-1" eventType="touchUpInside" id="MBc-Mb-8ia"/>
                     </connections>
                 </button>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dM5-L9-vNe">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dM5-L9-vNe">
                     <rect key="frame" x="20" y="254" width="374" height="351"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
@@ -74,16 +63,14 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="duW-L4-JNO" firstAttribute="top" secondItem="4NV-uu-hX2" secondAttribute="bottom" constant="8" symbolic="YES" id="1SQ-MX-aJL"/>
                 <constraint firstItem="5Tm-tg-qXh" firstAttribute="top" secondItem="dM5-L9-vNe" secondAttribute="bottom" constant="25" id="4Ix-PM-iC4"/>
                 <constraint firstItem="dM5-L9-vNe" firstAttribute="top" secondItem="duW-L4-JNO" secondAttribute="bottom" constant="10" id="8qE-7m-uO4"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dM5-L9-vNe" secondAttribute="trailing" constant="20" id="8zJ-AE-6KC"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5Tm-tg-qXh" secondAttribute="trailing" constant="142.5" id="DBq-nD-6PY"/>
                 <constraint firstItem="dM5-L9-vNe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="KuZ-gs-gJX"/>
-                <constraint firstItem="4NV-uu-hX2" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="137" id="Lh6-RU-2qy"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="duW-L4-JNO" secondAttribute="trailing" constant="20" id="XFP-dh-0M5"/>
                 <constraint firstItem="duW-L4-JNO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="kCE-NG-dpt"/>
-                <constraint firstItem="4NV-uu-hX2" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="nta-tj-8xj"/>
+                <constraint firstItem="duW-L4-JNO" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="166" id="kEB-TO-tdp"/>
                 <constraint firstItem="5Tm-tg-qXh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="142.5" id="v5O-7T-TZS"/>
             </constraints>
             <point key="canvasLocation" x="140.57971014492756" y="124.55357142857142"/>

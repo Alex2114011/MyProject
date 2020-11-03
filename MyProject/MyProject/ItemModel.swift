@@ -9,9 +9,9 @@ import Foundation
 
 class Items {
     var title: String
-    let subTitle: String
+    let subTitle: String?
     
-    init(title: String, subTitle: String) {
+    init(title: String, subTitle: String?) {
         self.title = title
         self.subTitle = subTitle
     }

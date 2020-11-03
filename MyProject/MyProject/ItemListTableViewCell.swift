@@ -22,8 +22,9 @@ class ItemListTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func changeText(text: String){ // метод в котором изменяем текс в лейбле
+    func changeText(text: String, subTitle: String){ // метод в котором изменяем текс в лейбле
         titleLabel.text = text
+        subTitleLabel.text = subTitle
     }
     
     

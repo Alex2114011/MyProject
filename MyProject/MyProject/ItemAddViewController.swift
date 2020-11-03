@@ -8,14 +8,13 @@
 import UIKit
 
 protocol ItemAddDelegate: AnyObject {
-    func addItem(with text: String)
+    func addItem(with text: String, subText: String)
 }
 
 class ItemAddViewController: UIViewController {
     
     weak var delegate: ItemAddDelegate?
     
-    @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var subTitleTextView: UITextView!
@@ -41,7 +40,7 @@ class ItemAddViewController: UIViewController {
     
     
     @IBAction func tapSaveButton(_ sender: UIButton) {
-        self.delegate?.addItem(with: titleTextField.text ?? "") // передаем значение на ItemListViewController
+        self.delegate?.addItem(with: titleTextField.text ?? "", subText: subTitleTextView.text ?? "") // передаем значение на ItemListViewController
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
   
