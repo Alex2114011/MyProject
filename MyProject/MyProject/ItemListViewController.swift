@@ -50,9 +50,7 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let rootVC = ItemAddViewController()
-        let navVC = UINavigationController(rootViewController: rootVC) // оборачиваем ItemAddViewController в свой NavigationController
-        rootVC.delegate = self // подписываемся под делегирование
+     
     }
     
     //MARK: Delete row
