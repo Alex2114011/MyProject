@@ -9,7 +9,8 @@ import UIKit
 
 class ItemListTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subTitleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,7 +23,7 @@ class ItemListTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func changeText(text: String){ // метод в котором изменяем текс в лейбле
-        label.text = text
+        titleLabel.text = text
     }
     
     

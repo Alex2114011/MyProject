@@ -16,8 +16,9 @@ class ItemAddViewController: UIViewController {
     weak var delegate: ItemAddDelegate?
     
     @IBOutlet weak var textLabel: UILabel!
-    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var subTitleTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +41,7 @@ class ItemAddViewController: UIViewController {
     
     
     @IBAction func tapSaveButton(_ sender: UIButton) {
-        self.delegate?.addItem(with: textField.text ?? "") // передаем значение на ItemListViewController
+        self.delegate?.addItem(with: titleTextField.text ?? "") // передаем значение на ItemListViewController
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
   
@@ -51,7 +52,7 @@ class ItemAddViewController: UIViewController {
         updateSaveButtonState()
     }
     func updateSaveButtonState(){
-        let textInField = textField.text ?? ""
+        let textInField = titleTextField.text ?? ""
         if textInField.isEmpty{
             saveButton.isEnabled = false
             saveButton.backgroundColor = .gray
