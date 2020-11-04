@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol ItemSendDelegate: AnyObject {
+    func sendItem(with text: String, subText: String)
+}
+
 class ItemListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
@@ -14,6 +18,7 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
 //    var array = [String]() // тестовый массив
     var itemsArray = [Items]()
     
+    weak var delegateSend: ItemSendDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +55,9 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-     
+        let rootVC = ResultViewController()
+        self.delegateSend?.sendItem(with: itemsArray[indexPath.row].title, subText: itemsArray[indexPath.row].subTitle ?? "")
+        self.navigationController?.pushViewController(rootVC, animated: true)
     }
     
     //MARK: Delete row
