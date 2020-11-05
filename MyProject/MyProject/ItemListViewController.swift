@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol ItemSendDelegate: AnyObject {
-    func sendItem(with text: String, subText: String)
-}
-
 class ItemListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
@@ -18,7 +14,6 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
 //    var array = [String]() // тестовый массив
     var itemsArray = [Items]()
     
-    weak var delegateSend: ItemSendDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,9 +50,10 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let rootVC = ResultViewController()
-        self.delegateSend?.sendItem(with: itemsArray[indexPath.row].title, subText: itemsArray[indexPath.row].subTitle ?? "")
-        self.navigationController?.pushViewController(rootVC, animated: true)
+        let resultVC = ResultViewController(with: itemsArray)
+        //        let resultVC = ResultViewController(with: itemsArray[indexPath.row].title, subTitle: itemsArray[indexPath.row].subTitle ?? "")
+        resultVC.delegate = self
+        self.navigationController?.pushViewController(resultVC, animated: true)
     }
     
     //MARK: Delete row
@@ -102,3 +98,17 @@ extension ItemListViewController: ItemAddDelegate{
     
 }
 
+
+extension ItemListViewController:SaveResultChanges{
+    func saveChanges(title text: String, subtitle: String) {
+//        let indexPath = IndexPath(row: itemsArray.count, section: 0)
+//        itemsArray.remove(at: indexPath.row)
+//        tableView.deleteRows(at: [indexPath], with: .fade)
+//        itemsArray.append(Items(title: text, subTitle: subtitle))
+//        tableView.insertRows(at: [indexPath], with: .fade)
+     
+         
+    }
+    
+    
+}

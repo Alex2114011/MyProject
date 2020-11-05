@@ -9,7 +9,7 @@ import Foundation
 
 class Items {
     var title: String
-    let subTitle: String?
+    var subTitle: String?
     
     init(title: String, subTitle: String?) {
         self.title = title
