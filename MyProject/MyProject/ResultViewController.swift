@@ -19,7 +19,7 @@ class ResultViewController: UIViewController {
     
     weak var delegate: SaveResultChanges?
     
-    
+    //MARK: без delegate тоже работает
     init(with item: Items) {//,  delegate: SaveResultChanges
         self.item = item
 //    self.delegate = delegate
