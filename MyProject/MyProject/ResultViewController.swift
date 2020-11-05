@@ -8,22 +8,22 @@
 import UIKit
 
 protocol SaveResultChanges: AnyObject {
-    func saveChanges(title text: String, subtitle: String)
+    func saveChanges(with item: Items)
 }
 
 class ResultViewController: UIViewController {
     @IBOutlet weak var resultTitle: UITextField!
     @IBOutlet weak var resultText: UITextView!
-    var tmpArray = [Items]()
+    var item: Items
 
     
     weak var delegate: SaveResultChanges?
     
     
-    init(with array: [Items]) {
-        tmpArray = array
-        
-        super.init(nibName: String(describing: ResultViewController.self), bundle: nil)
+    init(with item: Items) {//,  delegate: SaveResultChanges
+        self.item = item
+//    self.delegate = delegate
+    super.init(nibName: String(describing: ResultViewController.self), bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -36,22 +36,33 @@ class ResultViewController: UIViewController {
         super.viewDidLoad()
         chageText()
         setSaveButton()
+        setUI()
     }
+    
+    func setUI() {
+        view.backgroundColor = .white
+        self.title = "ResultVC"
+        resultText.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1).cgColor
+        resultText.layer.borderWidth = 0.5
+        resultText.layer.cornerRadius = 5
+        resultText.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+    }
+    
+    
     
     
     func chageText(){
-        let indexPath = IndexPath(row: tmpArray.count, section: 0)
-        let title = tmpArray[indexPath.row].title
-        let subTitle = tmpArray[indexPath.row].subTitle
-        resultTitle.text = title
-        resultText.text = subTitle
-    }
+        resultTitle.text = item.title
+        resultText.text = item.subTitle
+         }
 
     func setSaveButton() { //добавляем кнопку на навбар
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButton(parameter:)))
     }
     @objc func saveButton(parameter: UIBarButtonItem) {
-//        self.delegate?.saveChanges(title: resultTitle.text ?? "", subtitle: resultText.text ?? "")
+        item.title = resultTitle.text ?? ""
+        item.subTitle = resultText.text ?? ""
+        self.delegate?.saveChanges(with: item)
         self.navigationController?.popToRootViewController(animated: true) //Отклоняет контроллер, который был представлен контроллером представления модально.
     }
 

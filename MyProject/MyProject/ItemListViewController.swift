@@ -50,8 +50,7 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let resultVC = ResultViewController(with: itemsArray)
-        //        let resultVC = ResultViewController(with: itemsArray[indexPath.row].title, subTitle: itemsArray[indexPath.row].subTitle ?? "")
+        let resultVC = ResultViewController(with: itemsArray[indexPath.row])//, delegate: self
         resultVC.delegate = self
         self.navigationController?.pushViewController(resultVC, animated: true)
     }
@@ -100,15 +99,11 @@ extension ItemListViewController: ItemAddDelegate{
 
 
 extension ItemListViewController:SaveResultChanges{
-    func saveChanges(title text: String, subtitle: String) {
-//        let indexPath = IndexPath(row: itemsArray.count, section: 0)
-//        itemsArray.remove(at: indexPath.row)
-//        tableView.deleteRows(at: [indexPath], with: .fade)
-//        itemsArray.append(Items(title: text, subTitle: subtitle))
-//        tableView.insertRows(at: [indexPath], with: .fade)
-     
-         
+    func saveChanges(with item: Items) {
+        tableView.reloadData()
+    }
+    
     }
     
     
-}
+
