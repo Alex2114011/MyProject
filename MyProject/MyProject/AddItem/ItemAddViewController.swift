@@ -24,7 +24,7 @@ class ItemAddViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
-        setAddButton()
+        setSaveButton()
         updateSaveButtonState()
         subTitleTextView.delegate = self
     }
@@ -42,11 +42,12 @@ class ItemAddViewController: UIViewController, UITextViewDelegate {
         subTitleTextView.textColor = #colorLiteral(red: 0.7960080504, green: 0.7961236835, blue: 0.8038249612, alpha: 1)
     }
     
-    func setAddButton() { //добавляем кнопку на навбар
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(addButton(parameter:)))
+    ///Добавляем кнопку на навбар
+    func setSaveButton() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(navigateToRootVC(parameter:)))
     }
     
-    
+    /// Действие при нажатии кнопки сохранить
     @IBAction func tapSaveButton(_ sender: UIButton) {
         if subTitleTextView.text == "Введите текст"{
             subTitleTextView.text = nil
@@ -54,7 +55,9 @@ class ItemAddViewController: UIViewController, UITextViewDelegate {
         self.delegate?.addItem(with: titleTextField.text ?? "", subText: subTitleTextView.text ?? "") // передаем значение на ItemListViewController
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
-  //MARK: Add placeholder in TextView
+  
+    
+    //MARK: Add placeholder in TextView
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if subTitleTextView.textColor == #colorLiteral(red: 0.7960080504, green: 0.7961236835, blue: 0.8038249612, alpha: 1){
@@ -79,9 +82,12 @@ class ItemAddViewController: UIViewController, UITextViewDelegate {
     
     //MARK: Change State button
     
+    ///Отслеживание действий в текстовом поле
     @IBAction func textChanged(_ sender: UITextField) {
         updateSaveButtonState()
     }
+    
+    ///Обновление состояния кнопки сохранить
     func updateSaveButtonState(){
         let textInField = titleTextField.text ?? ""
         if textInField.isEmpty{
@@ -95,10 +101,11 @@ class ItemAddViewController: UIViewController, UITextViewDelegate {
     
     //MARK:Selectors
     
-    @objc func addButton(parameter: UIBarButtonItem) {
+    @objc func navigateToRootVC(parameter: UIBarButtonItem) {
         self.navigationController?.dismiss(animated: true, completion: nil) //Отклоняет контроллер, который был представлен контроллером представления модально.
     }
     
+  
     //MARK: Hide keyboard
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) { // этот метод отвечает за то что должно происходить когда мы касаемся экрана

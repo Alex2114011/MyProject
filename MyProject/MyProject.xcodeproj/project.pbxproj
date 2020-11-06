@@ -49,9 +49,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA147E84255536260036E2B3 /* ListItem */ = {
+			isa = PBXGroup;
+			children = (
+				FA9D6B372546E3B400779E83 /* ItemListViewController.swift */,
+				FA2A3D31254ABC7500BB4317 /* ItemListTableViewCell.swift */,
+			);
+			path = ListItem;
+			sourceTree = "<group>";
+		};
+		FA147E872555366F0036E2B3 /* AddItem */ = {
+			isa = PBXGroup;
+			children = (
+				FA2A3D41254B223D00BB4317 /* ItemAddViewController.swift */,
+			);
+			path = AddItem;
+			sourceTree = "<group>";
+		};
+		FA147E882555367E0036E2B3 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				FAAAB0A82551E83800410DDB /* ResultViewController.swift */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
 		FA2A3D39254ABCAA00BB4317 /* XIB ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				FA525F6A254DC56C0099B718 /* ItemModel.swift */,
 				FA2A3D36254ABCA200BB4317 /* ItemListViewController.xib */,
 				FA2A3D32254ABC7500BB4317 /* ItemListTableViewCell.xib */,
 				FA2A3D42254B223D00BB4317 /* ItemAddViewController.xib */,
@@ -79,13 +105,11 @@
 		FA9D6B322546E3B400779E83 /* MyProject */ = {
 			isa = PBXGroup;
 			children = (
-				FA2A3D39254ABCAA00BB4317 /* XIB ViewControllers */,
 				FA9D6B332546E3B400779E83 /* AppDelegate.swift */,
-				FA2A3D41254B223D00BB4317 /* ItemAddViewController.swift */,
-				FAAAB0A82551E83800410DDB /* ResultViewController.swift */,
-				FA9D6B372546E3B400779E83 /* ItemListViewController.swift */,
-				FA525F6A254DC56C0099B718 /* ItemModel.swift */,
-				FA2A3D31254ABC7500BB4317 /* ItemListTableViewCell.swift */,
+				FA2A3D39254ABCAA00BB4317 /* XIB ViewControllers */,
+				FA147E84255536260036E2B3 /* ListItem */,
+				FA147E872555366F0036E2B3 /* AddItem */,
+				FA147E882555367E0036E2B3 /* Result */,
 				FA9D6B3C2546E3B700779E83 /* Assets.xcassets */,
 				FA9D6B3E2546E3B700779E83 /* LaunchScreen.storyboard */,
 				FA9D6B412546E3B700779E83 /* Info.plist */,

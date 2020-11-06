@@ -11,7 +11,6 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     
-//    var array = [String]() // тестовый массив
     var itemsArray = [Items]()
     
     
@@ -20,42 +19,47 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
         self.title = "FirstVC" // устанавливаем заголовок VC
         view.backgroundColor = .white // фон view
         delegate()
-        register()
+        registerCell()
         setAddButton()
     }
-    
-    func setAddButton() { //добавляем кнопку на навбар
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButton(parameter:)))
+    ///Добавляем кнопку на навбар для перехода на экран добавления элемента
+    func setAddButton() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(navigateToAddList(parameter:)))
     }
-    func delegate(){ // подписываемся под протоколы
+    /// Подписываемся под протоколы
+    func delegate(){
         tableView.delegate = self
         tableView.dataSource = self
     }
-    
-    func register() { // регистрируем ячейку
+    /// Регистрируем ячейку
+    func registerCell() {
         tableView.register(UINib(nibName: String(describing: ItemListTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: ItemListTableViewCell.self))
     }
     
     
     //MARK: UITableViewDataSource
     
+    /// Метод определяющий количиство ячеек в секции
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { // указываем количество ячеек
         return itemsArray.count
     }
     
+    ///Метод для создания ячейки
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell { // создаем ячейку
         guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ItemListTableViewCell.self), for: indexPath) as? ItemListTableViewCell else { fatalError() }
         cell.changeText(text: itemsArray[indexPath.row].title, subTitle: itemsArray[indexPath.row].subTitle ?? "")
         return cell
     }
     
+    /// Метод для определения действия при нажатии на ячейку
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let resultVC = ResultViewController(with: itemsArray[indexPath.row])//, delegate: self
+        let resultVC = ResultViewController(with: itemsArray[indexPath.row], delegate: self)
         resultVC.delegate = self
         self.navigationController?.pushViewController(resultVC, animated: true)
     }
     
     //MARK: Delete row
+/// Метод для определяния действия стиля действий над ячейкой
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             itemsArray.remove(at: indexPath.row)
@@ -67,6 +71,7 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
     
     //MARK: UITableViewDelegate
     
+    /// Метод для определения выстоты ячейки
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { // указываем высоту ячейки
         return 50.0
     }
@@ -74,13 +79,12 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
     
     //MARK: #selectors
     
-    // селектор для кнопки который при нажатии направляет на второй экран
-    @objc func addButton(parameter: UIBarButtonItem) {
+    /// Селектор для кнопки который при нажатии направляет на второй экран
+    @objc func navigateToAddList(parameter: UIBarButtonItem) {
         let rootVC = ItemAddViewController()
         let navVC = UINavigationController(rootViewController: rootVC) // оборачиваем ItemAddViewController в свой NavigationController
         rootVC.delegate = self // подписываемся под делегирование
         present(navVC, animated: true, completion: nil) // открываем второй VC модально, в таком случае он будет иметь свой UIBarButtonItem
-        
         //self.navigationController?.pushViewController(secondVC, animated: true)
     }
 }
@@ -97,7 +101,7 @@ extension ItemListViewController: ItemAddDelegate{
     
 }
 
-
+//MARK: Delegate to ResultViewController
 extension ItemListViewController:SaveResultChanges{
     func saveChanges(with item: Items) {
         tableView.reloadData()
