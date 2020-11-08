@@ -25,8 +25,8 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
         reloadData()
     }
     
-            
-        ///Добавляем кнопку на навбар для перехода на экран добавления элемента
+    
+    ///Добавляем кнопку на навбар для перехода на экран добавления элемента
     func setAddButton() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(navigateToAddList(parameter:)))
     }
@@ -63,7 +63,7 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     //MARK: Delete row
-/// Метод для определяния действия стиля действий над ячейкой
+    /// Метод для определяния действия стиля действий над ячейкой
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             itemsArray.remove(at: indexPath.row)
@@ -118,21 +118,19 @@ extension ItemListViewController: ItemAddDelegate{
 //MARK: Delegate to ResultViewController
 extension ItemListViewController:SaveResultChanges{
     func saveChanges(with item: Items) {
-        let resultItemsArray = [item]
-        if itemsArray == resultItemsArray{
+        let resultItemArray = [item]
+        if itemsArray[indexSelectRow] != resultItemArray[0]{
+            itemsArray[indexSelectRow] = resultItemArray[0]
             defaults.set(itemsArray, for: "kSaveArray")
             tableView.reloadData()
-            print("true")
+            print("save changed data")
         }else{
-            itemsArray[indexSelectRow] = resultItemsArray[0]
-            defaults.set(itemsArray, for: "kSaveArray")
-            tableView.reloadData()
-            print("Else Work")
+            print("Do nothing")
         }
-        tableView.reloadData()
+        
     }
     
-    }
-    
-    
+}
+
+
 
