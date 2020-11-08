@@ -69,7 +69,7 @@ class ResultViewController: UIViewController {
     @objc func saveButton(parameter: UIBarButtonItem) {
         item.title = resultTitle.text ?? ""
         item.subTitle = resultText.text ?? ""
-       self.delegate?.saveChanges(with: item)
+        self.delegate?.saveChanges(with: item)
         self.navigationController?.popToRootViewController(animated: true) //Отклоняет контроллер, который был представлен контроллером представления модально.
     }
 

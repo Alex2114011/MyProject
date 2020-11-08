@@ -13,6 +13,7 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
     
     var itemsArray = [Items]()
     let defaults = Defaults.shared
+    var indexSelectRow:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +58,7 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
     /// Метод для определения действия при нажатии на ячейку
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let resultVC = ResultViewController(with: itemsArray[indexPath.row], delegate: self)
-        resultVC.delegate = self
+        indexSelectRow = indexPath.row
         self.navigationController?.pushViewController(resultVC, animated: true)
     }
     
@@ -117,7 +118,17 @@ extension ItemListViewController: ItemAddDelegate{
 //MARK: Delegate to ResultViewController
 extension ItemListViewController:SaveResultChanges{
     func saveChanges(with item: Items) {
-        defaults.set(itemsArray, for: "kSaveArray")
+        let resultItemsArray = [item]
+        if itemsArray == resultItemsArray{
+            defaults.set(itemsArray, for: "kSaveArray")
+            tableView.reloadData()
+            print("true")
+        }else{
+            itemsArray[indexSelectRow] = resultItemsArray[0]
+            defaults.set(itemsArray, for: "kSaveArray")
+            tableView.reloadData()
+            print("Else Work")
+        }
         tableView.reloadData()
     }
     
