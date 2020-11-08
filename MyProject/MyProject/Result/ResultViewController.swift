@@ -8,21 +8,21 @@
 import UIKit
 
 protocol SaveResultChanges: AnyObject {
-    func saveChanges(with item: Items)
+    func saveChanges(with item: Item)
 }
 
 class ResultViewController: UIViewController {
     @IBOutlet weak var resultTitle: UITextField!
     @IBOutlet weak var resultText: UITextView!
-    var item: Items
+    var item: Item
 
     
     weak var delegate: SaveResultChanges?
     
     //MARK: Custom init for class
     
-    /// Создаем кастомный инициализатоор для класса, через него осуществляется получение данных из вызывающего VC, в инициализируем модель данных Items и делегата
-    init(with item: Items, delegate: SaveResultChanges) {
+    /// Создаем кастомный инициализатоор для класса, через него осуществляется получение данных из вызывающего VC, в инициализируем модель данных Item и делегата
+    init(with item: Item, delegate: SaveResultChanges) {
         self.item = item
         self.delegate = delegate
     super.init(nibName: String(describing: ResultViewController.self), bundle: nil)
@@ -40,7 +40,7 @@ class ResultViewController: UIViewController {
         setUI()
     }
     
-    //MARK: Setting UI items
+    //MARK: Setting UI Item
     func setUI() {
         view.backgroundColor = .white
         self.title = "ResultVC"
@@ -61,14 +61,14 @@ class ResultViewController: UIViewController {
     func chageText(){
         resultTitle.text = item.title
         resultText.text = item.subTitle
-         }
+    }
     
     
     //MARK: Selectors
     ///При нажатии на кнопку сохранить значения из IBOutlet передаются в модель делегату, происходит возврат к RootViewController
     @objc func saveButton(parameter: UIBarButtonItem) {
-        item.title = resultTitle.text ?? ""
-        item.subTitle = resultText.text ?? ""
+        item.change(title: resultTitle.text ?? "")
+        item.change(subtitle: resultText.text ?? "")
         self.delegate?.saveChanges(with: item)
         self.navigationController?.popToRootViewController(animated: true) //Отклоняет контроллер, который был представлен контроллером представления модально.
     }
