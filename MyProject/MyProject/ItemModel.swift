@@ -7,12 +7,12 @@
 
 import Foundation
 
-class Items: Codable {
+struct Items: Codable {
     var title: String
     var subTitle: String?
     
-    init(title: String, subTitle: String?) {
-        self.title = title
-        self.subTitle = subTitle
-    }
+//    init(title: String, subTitle: String?) {
+//        self.title = title
+//        self.subTitle = subTitle
+//    }
 }
