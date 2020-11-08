@@ -66,7 +66,7 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             itemsArray.remove(at: indexPath.row)
-            defaults.set(itemsArray, for: "kSaveArray")
+            defaults.set(itemsArray, for: .kItems)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
         
@@ -96,7 +96,7 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
     //MARK: Loding data from start App
     
     func reloadData(){
-        guard let itemsArray = defaults.getObject(with: Key<[Items]>("kSaveArray")) else { return }
+        guard let itemsArray = defaults.getObject(with: .kItems) else { return }
         self.itemsArray = itemsArray
     }
 }
@@ -108,7 +108,7 @@ extension ItemListViewController: ItemAddDelegate{
     func addItem(with text: String, subText: String) {
         let indexPath = IndexPath(row: itemsArray.count, section: 0) // создаем  indexPath с количеством элементов в массиве
         itemsArray.append(Items(title: text, subTitle: subText)) // добавляем элемен в массив
-        defaults.set(itemsArray, for: "kSaveArray")
+        defaults.set(itemsArray, for: .kItems)
         tableView.insertRows(at: [indexPath], with: .fade) // позволяет в ставить новый элемент в таблицу
     }
     
@@ -117,11 +117,11 @@ extension ItemListViewController: ItemAddDelegate{
 //MARK: Delegate to ResultViewController
 extension ItemListViewController:SaveResultChanges{
     func saveChanges(with item: Items) {
-        defaults.set(itemsArray, for: "kSaveArray")
+        defaults.set(itemsArray, for: .kItems)
         tableView.reloadData()
     }
     
-    }
+}
     
     
 

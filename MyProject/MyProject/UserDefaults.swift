@@ -7,7 +7,15 @@
 
 import Foundation
 
-final class Key<T: Codable> {
+class DefaultsKeys {
+    init() {}
+}
+
+extension DefaultsKeys {
+    static let kItems = Key<[Items]>("kSaveArrayItems")
+}
+
+final class Key<T: Codable>: DefaultsKeys {
     let _key: String
     init(_ key: String) {
         self._key = key
@@ -22,9 +30,16 @@ class Defaults {
     /// - Parameters:
     ///   - object: объект, который хочешь сохранить
     ///   - key: ключ под которым хочешь сохранить
-    func set<T: Codable>(_ object: T, for key: String) {
-        guard let data = try? JSONEncoder().encode(object) else { fatalError("Encode has error") }
-        userDefaults.setValue(data, forKey: key)
+    func set<T: Codable>(_ object: T, for key: Key<T>) {
+        if isSwiftCodableType(T.self) || isFoundationCodableType(T.self) {
+            userDefaults.set(object, forKey: key._key)
+            return
+        }
+        
+        let encoder = JSONEncoder()
+        guard let encoded = try? encoder.encode(object) else { return }
+        userDefaults.set(encoded, forKey: key._key)
+        userDefaults.synchronize()
     }
     
     /// метод получения объекта назад
@@ -39,6 +54,24 @@ class Defaults {
     /// - Parameter key: ключ под которым удалится что-то
     func remove(for key: String) {
         userDefaults.removeObject(forKey: key)
+    }
+    
+    private func isSwiftCodableType<T>(_ type: T.Type) -> Bool {
+        switch type {
+        case is String.Type, is Bool.Type, is Int.Type, is Float.Type, is Double.Type:
+            return true
+        default:
+            return false
+        }
+    }
+    
+    private func isFoundationCodableType<T>(_ type: T.Type) -> Bool {
+        switch type {
+        case is Date.Type:
+            return true
+        default:
+            return false
+        }
     }
     
 }
