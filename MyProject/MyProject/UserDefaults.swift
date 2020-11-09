@@ -38,6 +38,7 @@ class Defaults {
         
         let encoder = JSONEncoder()
         guard let encoded = try? encoder.encode(object) else { return }
+        userDefaults.removeObject(forKey: key._key)
         userDefaults.set(encoded, forKey: key._key)
         userDefaults.synchronize()
     }

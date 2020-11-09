@@ -140,7 +140,6 @@ extension ItemListViewController:SaveResultChanges{
     }
     
     private func defaultsUpdate() {
-        defaults.remove(for: .kItems)
         defaults.set(self.itemsArray, for: .kItems)
     }
     
