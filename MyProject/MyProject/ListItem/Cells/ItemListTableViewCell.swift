@@ -12,6 +12,8 @@ class ItemListTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subTitleLabel: UILabel!
     
+    var item: Item?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         titleLabel.textColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
@@ -26,6 +28,12 @@ class ItemListTableViewCell: UITableViewCell {
     func changeText(text: String, subTitle: String){ // метод в котором изменяем текс в лейбле
         titleLabel.text = text
         subTitleLabel.text = subTitle
+    }
+    
+    func configure(with item: Item) {
+        self.item = item
+        titleLabel.text = item.title
+        subTitleLabel.text = item.subTitle
     }
     
     

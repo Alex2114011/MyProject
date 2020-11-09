@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F5C4DC4D2559572400D8A46A /* ItemListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C4DC4C2559572400D8A46A /* ItemListViewModel.swift */; };
 		FA2A3D33254ABC7500BB4317 /* ItemListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2A3D31254ABC7500BB4317 /* ItemListTableViewCell.swift */; };
 		FA2A3D34254ABC7500BB4317 /* ItemListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2A3D32254ABC7500BB4317 /* ItemListTableViewCell.xib */; };
 		FA2A3D37254ABCA200BB4317 /* ItemListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2A3D36254ABCA200BB4317 /* ItemListViewController.xib */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F5C4DC4C2559572400D8A46A /* ItemListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListViewModel.swift; sourceTree = "<group>"; };
 		FA2A3D31254ABC7500BB4317 /* ItemListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListTableViewCell.swift; sourceTree = "<group>"; };
 		FA2A3D32254ABC7500BB4317 /* ItemListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemListTableViewCell.xib; sourceTree = "<group>"; };
 		FA2A3D36254ABCA200BB4317 /* ItemListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemListViewController.xib; sourceTree = "<group>"; };
@@ -51,11 +53,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F5C4DC4F255957F900D8A46A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FA2A3D31254ABC7500BB4317 /* ItemListTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		FA147E84255536260036E2B3 /* ListItem */ = {
 			isa = PBXGroup;
 			children = (
+				F5C4DC4F255957F900D8A46A /* Cells */,
 				FA9D6B372546E3B400779E83 /* ItemListViewController.swift */,
-				FA2A3D31254ABC7500BB4317 /* ItemListTableViewCell.swift */,
+				F5C4DC4C2559572400D8A46A /* ItemListViewModel.swift */,
 			);
 			path = ListItem;
 			sourceTree = "<group>";
@@ -194,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA525F6B254DC56C0099B718 /* ItemModel.swift in Sources */,
+				F5C4DC4D2559572400D8A46A /* ItemListViewModel.swift in Sources */,
 				FA2A3D33254ABC7500BB4317 /* ItemListTableViewCell.swift in Sources */,
 				FA2A3D43254B223D00BB4317 /* ItemAddViewController.swift in Sources */,
 				FA9D6B382546E3B400779E83 /* ItemListViewController.swift in Sources */,

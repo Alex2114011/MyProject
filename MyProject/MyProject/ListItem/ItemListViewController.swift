@@ -11,17 +11,23 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     
-    var itemsArray = [Item]()
-    let defaults = Defaults.shared
+    var viewModel: ItemListViewModel
+    
+    init(viewModel: ItemListViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: String(describing: ItemListViewController.self), bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) { fatalError() }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "FirstVC" // устанавливаем заголовок VC
         view.backgroundColor = .white // фон view
+        viewModel.viewReady()
         delegate()
         registerCell()
         setAddButton()
-        reloadData()
     }
     
     
@@ -44,28 +50,28 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
     
     /// Метод определяющий количиство ячеек в секции
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { // указываем количество ячеек
-        return itemsArray.count
+        return viewModel.itemsArray.count
     }
     
     ///Метод для создания ячейки
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell { // создаем ячейку
         guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: ItemListTableViewCell.self), for: indexPath) as? ItemListTableViewCell else { fatalError() }
-        cell.changeText(text: itemsArray[indexPath.row].title, subTitle: itemsArray[indexPath.row].subTitle ?? "")
+        let item = viewModel.itemsArray[indexPath.row]
+        cell.configure(with: item)
         return cell
     }
     
     /// Метод для определения действия при нажатии на ячейку
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let resultVC = ResultViewController(with: itemsArray[indexPath.row], delegate: self)
+        let resultVC = ResultViewController(with: viewModel.itemsArray[indexPath.row], delegate: self)
         self.navigationController?.pushViewController(resultVC, animated: true)
     }
     
     //MARK: Delete row
     /// Метод для определяния действия стиля действий над ячейкой
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete{
-            itemsArray.remove(at: indexPath.row)
-            defaults.set(itemsArray, for: .kItems)
+        if editingStyle == .delete {
+            viewModel.remove(item: viewModel.itemsArray[indexPath.row])
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
         
@@ -90,14 +96,6 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
         present(navVC, animated: true, completion: nil) // открываем второй VC модально, в таком случае он будет иметь свой UIBarButtonItem
         //self.navigationController?.pushViewController(secondVC, animated: true)
     }
-    
-    
-    //MARK: Loding data from start App
-    
-    func reloadData(){
-        guard let itemsArray = defaults.getObject(with: .kItems) else { return }
-        self.itemsArray = itemsArray
-    }
 }
 
 
@@ -105,10 +103,8 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
 //MARK: Delegate to ItemAddViewController
 extension ItemListViewController: ItemAddDelegate{
     func addItem(with text: String, subText: String) {
-        let indexPath = IndexPath(row: itemsArray.count, section: 0) // создаем  indexPath с количеством элементов в массиве
-        itemsArray.append(Item(title: text, subTitle: subText)) // добавляем элемен в массив
-        defaults.set(itemsArray, for: .kItems)
-        tableView.insertRows(at: [indexPath], with: .fade) // позволяет в ставить новый элемент в таблицу
+        viewModel.addItem(with: Item(title: text, subTitle: subText))
+        tableView.reloadData()
     }
     
 }
@@ -116,31 +112,8 @@ extension ItemListViewController: ItemAddDelegate{
 //MARK: Delegate to ResultViewController
 extension ItemListViewController:SaveResultChanges{
     func saveChanges(with item: Item) {
-        
-        //первый вариант
-        
-        
-//        if let indexReplace = itemsArray.firstIndex(where: { $0.id == item.id }) {
-//            itemsArray.remove(at: indexReplace)
-//            itemsArray.insert(item, at: indexReplace)
-//        }
-        
-        //второй вариант
-        
-        itemsArray = itemsArray
-            .map { (itemInArray) -> Item in
-                if itemInArray.id == item.id {
-                    return item
-                }
-                return itemInArray
-            }
-        
-        defaultsUpdate()
+        viewModel.change(item: item)
         tableView.reloadData()
-    }
-    
-    private func defaultsUpdate() {
-        defaults.set(self.itemsArray, for: .kItems)
     }
     
 }

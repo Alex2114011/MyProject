@@ -25,7 +25,7 @@ class ResultViewController: UIViewController {
     init(with item: Item, delegate: SaveResultChanges) {
         self.item = item
         self.delegate = delegate
-    super.init(nibName: String(describing: ResultViewController.self), bundle: nil)
+        super.init(nibName: String(describing: ResultViewController.self), bundle: nil)
     }
     
     required init?(coder: NSCoder) {
