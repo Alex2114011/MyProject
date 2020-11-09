@@ -65,7 +65,7 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             itemsArray.remove(at: indexPath.row)
-            defaults.set(itemsArray, for: "kSaveArray")
+            defaults.set(itemsArray, for: .kItems)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
         
@@ -95,8 +95,13 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
     //MARK: Loding data from start App
     
     func reloadData(){
+<<<<<<< HEAD
         guard let ItemArray = defaults.getObject(with: Key<[Item]>("kSaveArray")) else { return }
         self.itemsArray = ItemArray
+=======
+        guard let itemsArray = defaults.getObject(with: .kItems) else { return }
+        self.itemsArray = itemsArray
+>>>>>>> refactoring
     }
 }
 
@@ -106,8 +111,13 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
 extension ItemListViewController: ItemAddDelegate{
     func addItem(with text: String, subText: String) {
         let indexPath = IndexPath(row: itemsArray.count, section: 0) // создаем  indexPath с количеством элементов в массиве
+<<<<<<< HEAD
         itemsArray.append(Item(title: text, subTitle: subText)) // добавляем элемен в массив
         defaults.set(itemsArray, for: "kSaveArray")
+=======
+        itemsArray.append(Items(title: text, subTitle: subText)) // добавляем элемен в массив
+        defaults.set(itemsArray, for: .kItems)
+>>>>>>> refactoring
         tableView.insertRows(at: [indexPath], with: .fade) // позволяет в ставить новый элемент в таблицу
     }
     
@@ -115,6 +125,7 @@ extension ItemListViewController: ItemAddDelegate{
 
 //MARK: Delegate to ResultViewController
 extension ItemListViewController:SaveResultChanges{
+<<<<<<< HEAD
     func saveChanges(with item: Item) {
         
         //первый вариант
@@ -143,6 +154,14 @@ extension ItemListViewController:SaveResultChanges{
         defaults.remove(for: "kSaveArray")
         defaults.set(self.itemsArray, for: "kSaveArray")
     }
+=======
+    func saveChanges(with item: Items) {
+        defaults.set(itemsArray, for: .kItems)
+        tableView.reloadData()
+    }
+    
+}
+>>>>>>> refactoring
     
 }
 

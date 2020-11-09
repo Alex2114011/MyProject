@@ -67,8 +67,13 @@ class ResultViewController: UIViewController {
     //MARK: Selectors
     ///При нажатии на кнопку сохранить значения из IBOutlet передаются в модель делегату, происходит возврат к RootViewController
     @objc func saveButton(parameter: UIBarButtonItem) {
+<<<<<<< HEAD
         item.change(title: resultTitle.text ?? "")
         item.change(subtitle: resultText.text ?? "")
+=======
+        item.title = resultTitle.text ?? ""
+        item.subTitle = resultText.text ?? ""
+>>>>>>> refactoring
         self.delegate?.saveChanges(with: item)
         self.navigationController?.popToRootViewController(animated: true) //Отклоняет контроллер, который был представлен контроллером представления модально.
     }
