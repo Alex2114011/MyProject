@@ -7,12 +7,18 @@
 
 import Foundation
 
-struct Items: Codable, Hashable {
+struct Item: Codable {
+    let id = UUID().uuidString
     var title: String
     var subTitle: String?
     
-//    init(title: String, subTitle: String?) {
-//        self.title = title
-//        self.subTitle = subTitle
-//    }
+    
+    mutating func change(title withNewTitle: String) {
+        self.title = withNewTitle
+    }
+    
+    mutating func change(subtitle withNewSubtitle: String) {
+        self.subTitle = withNewSubtitle
+    }
+    
 }
