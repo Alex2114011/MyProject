@@ -12,7 +12,7 @@ class DefaultsKeys {
 }
 
 extension DefaultsKeys {
-    static let kItems = Key<[Items]>("kSaveArrayItems")
+    static let kItems = Key<[Item]>("kSaveArrayItems")
 }
 
 final class Key<T: Codable>: DefaultsKeys {
@@ -52,8 +52,9 @@ class Defaults {
     
     /// для коллекции удалить объект
     /// - Parameter key: ключ под которым удалится что-то
-    func remove(for key: String) {
-        userDefaults.removeObject(forKey: key)
+    func remove<T: Codable>(for key: Key<T>) {
+        userDefaults.removeObject(forKey: key._key)
+        userDefaults.synchronize()
     }
     
     private func isSwiftCodableType<T>(_ type: T.Type) -> Bool {
