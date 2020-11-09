@@ -106,7 +106,7 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
 extension ItemListViewController: ItemAddDelegate{
     func addItem(with text: String, subText: String) {
         let indexPath = IndexPath(row: itemsArray.count, section: 0) // создаем  indexPath с количеством элементов в массиве
-        itemsArray.append(Items(title: text, subTitle: subText)) // добавляем элемен в массив
+        itemsArray.append(Item(title: text, subTitle: subText)) // добавляем элемен в массив
         defaults.set(itemsArray, for: .kItems)
         tableView.insertRows(at: [indexPath], with: .fade) // позволяет в ставить новый элемент в таблицу
     }
@@ -140,8 +140,8 @@ extension ItemListViewController:SaveResultChanges{
     }
     
     private func defaultsUpdate() {
-        defaults.remove(for: "kSaveArray")
-        defaults.set(self.itemsArray, for: "kSaveArray")
+        defaults.remove(for: .kItems)
+        defaults.set(self.itemsArray, for: .kItems)
     }
     
 }
