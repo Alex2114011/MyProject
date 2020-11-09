@@ -11,7 +11,7 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     
-    var itemsArray = [Items]()
+    var itemsArray = [Item]()
     let defaults = Defaults.shared
     
     override func viewDidLoad() {
@@ -24,8 +24,8 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
         reloadData()
     }
     
-            
-        ///Добавляем кнопку на навбар для перехода на экран добавления элемента
+    
+    ///Добавляем кнопку на навбар для перехода на экран добавления элемента
     func setAddButton() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(navigateToAddList(parameter:)))
     }
@@ -57,12 +57,11 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
     /// Метод для определения действия при нажатии на ячейку
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let resultVC = ResultViewController(with: itemsArray[indexPath.row], delegate: self)
-        resultVC.delegate = self
         self.navigationController?.pushViewController(resultVC, animated: true)
     }
     
     //MARK: Delete row
-/// Метод для определяния действия стиля действий над ячейкой
+    /// Метод для определяния действия стиля действий над ячейкой
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
             itemsArray.remove(at: indexPath.row)
@@ -96,8 +95,8 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
     //MARK: Loding data from start App
     
     func reloadData(){
-        guard let itemsArray = defaults.getObject(with: Key<[Items]>("kSaveArray")) else { return }
-        self.itemsArray = itemsArray
+        guard let ItemArray = defaults.getObject(with: Key<[Item]>("kSaveArray")) else { return }
+        self.itemsArray = ItemArray
     }
 }
 
@@ -107,7 +106,7 @@ class ItemListViewController: UIViewController, UITableViewDelegate, UITableView
 extension ItemListViewController: ItemAddDelegate{
     func addItem(with text: String, subText: String) {
         let indexPath = IndexPath(row: itemsArray.count, section: 0) // создаем  indexPath с количеством элементов в массиве
-        itemsArray.append(Items(title: text, subTitle: subText)) // добавляем элемен в массив
+        itemsArray.append(Item(title: text, subTitle: subText)) // добавляем элемен в массив
         defaults.set(itemsArray, for: "kSaveArray")
         tableView.insertRows(at: [indexPath], with: .fade) // позволяет в ставить новый элемент в таблицу
     }
@@ -116,12 +115,36 @@ extension ItemListViewController: ItemAddDelegate{
 
 //MARK: Delegate to ResultViewController
 extension ItemListViewController:SaveResultChanges{
-    func saveChanges(with item: Items) {
-        defaults.set(itemsArray, for: "kSaveArray")
+    func saveChanges(with item: Item) {
+        
+        //первый вариант
+        
+        
+//        if let indexReplace = itemsArray.firstIndex(where: { $0.id == item.id }) {
+//            itemsArray.remove(at: indexReplace)
+//            itemsArray.insert(item, at: indexReplace)
+//        }
+        
+        //второй вариант
+        
+        itemsArray = itemsArray
+            .map { (itemInArray) -> Item in
+                if itemInArray.id == item.id {
+                    return item
+                }
+                return itemInArray
+            }
+        
+        defaultsUpdate()
         tableView.reloadData()
     }
     
+    private func defaultsUpdate() {
+        defaults.remove(for: "kSaveArray")
+        defaults.set(self.itemsArray, for: "kSaveArray")
     }
     
-    
+}
+
+
 
